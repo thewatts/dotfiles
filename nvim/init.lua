@@ -1,4 +1,5 @@
 require("watts.core")
+require("watts.git")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
