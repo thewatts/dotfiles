@@ -17,10 +17,19 @@ return {
       "<Leader>f",
       "<cmd>Neotree reveal<CR>",
       desc = "Reveal the current file in the filesystem tree"
-    }
+    },
   },
   config = function()
     require("neo-tree").setup({
+      filesystem = {
+        window = {
+          mappings = {
+            -- disable fuzzy finder
+            -- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/791
+            ["/"] = "noop"
+          },
+        },
+      },
       event_handlers = {
         {
           -- Auto close NeoTree when selecting (opening) a file
