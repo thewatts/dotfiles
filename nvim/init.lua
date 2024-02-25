@@ -22,3 +22,6 @@ require("lazy").setup({ { import = "plugins" } }, {
     notify = false
   }
 })
+
+-- Launch Lazy with <leader>l
+vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { noremap = true })
