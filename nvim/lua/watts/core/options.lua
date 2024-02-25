@@ -17,7 +17,7 @@ opt.swapfile = false
 opt.autowrite = true
 
 -- line numbers
-opt.number = true -- turn on line numbers
+opt.number = true         -- turn on line numbers
 opt.relativenumber = true -- make line numbers releative to the cursor
 
 -- tabs & indentation
@@ -31,6 +31,8 @@ opt.expandtab = true
 opt.shiftwidth = 2
 -- Make <Tab> use 2 spaces worth of indent
 opt.softtabstop = 2
+-- Make <Tab> use 2 spaces worth of indent, regardless what the tabstop was for the file (AFAIK, converts it)
+opt.tabstop = 2
 
 -- Disable line wrapping
 opt.wrap = false
@@ -44,7 +46,7 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- Appearance
--- 
+--
 -- https://neovim.io/doc/user/options.html#'cursorline'
 -- Highlight the text line of the cursor with CursorLine hl-CursorLine.
 -- Useful to easily spot the cursor.  Will make screen redrawing slower.
