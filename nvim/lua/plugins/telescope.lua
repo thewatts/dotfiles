@@ -14,6 +14,7 @@ return {
         desc = "Fuzzy find files by name in the current directory"
       },
       {
+        -- Make sure to brew install ripgrep for this!
         "<Leader>F",
         function()
           local builtin = require("telescope.builtin")
