@@ -100,13 +100,3 @@ opt.iskeyword:append("-")
 --
 -- This is set to false, re: Noice plugin
 opt.lazyredraw = false
-
--- Auto Strip Whitespace on Save
--- I should probably move this into some sort of autocommands group or something :)
-api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function()
-    -- Use Lua's vim.cmd to execute the Ex command for substitution
-    cmd([[%s/\s\+$//e]])
-  end,
-})
