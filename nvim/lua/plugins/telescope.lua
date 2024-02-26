@@ -1,4 +1,5 @@
 return {
+  -- Find, Filter, Preview, Pick. All lua, all the time.
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
@@ -22,6 +23,7 @@ return {
       },
     }
   },
+  -- It sets vim.ui.select to telescope. That means for example that neovim core stuff can fill the telescope picker. Example would be lua vim.lsp.buf.code_action().
   {
     "nvim-telescope/telescope-ui-select.nvim",
     config = function()

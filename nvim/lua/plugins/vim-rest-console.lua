@@ -1,3 +1,4 @@
+-- A REST console for Vim.
 return {
   "diepm/vim-rest-console",
   keys = {

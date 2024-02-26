@@ -21,6 +21,7 @@ end
 -- Define a Neovim command to toggle auto-formatting on save
 vim.api.nvim_create_user_command("ToggleFormattingOnSave", toggle_format_on_save, {})
 
+-- Lightweight yet powerful formatter plugin for Neovim
 return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },

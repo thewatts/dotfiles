@@ -1,3 +1,4 @@
+-- Run your tests at the speed of thought
 return {
   "janko/vim-test",
   keys = {

@@ -1,5 +1,6 @@
 local keymap = vim.keymap
 
+-- "Getting you where you want with the fewest keystrokes."
 return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
