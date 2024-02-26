@@ -12,7 +12,7 @@ cmd("FileType", {
 
 -- Setting File Types for Specific Extensions
 cmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "*.jbuilder", "*.rb.example", "*.csv.ruby", "*.axlsx" },
+  pattern = { "*.jbuilder", "*.rb.example", "*.csv.ruby", "*.axlsx", ".pryrc", ".irbrc" },
   command = "set filetype=ruby",
 })
 
