@@ -1,4 +1,5 @@
 -- An asynchronous linter plugin for Neovim complementary to the built-in Language Server Protocol support.
+-- Info source: https://youtu.be/ybUE4D80XSk
 return {
   "mfussenegger/nvim-lint",
   event = {
