@@ -49,6 +49,14 @@ return {
       lspconfig.standardrb.setup({})
       lspconfig.ruby_ls.setup({})
       lspconfig.stimulus_ls.setup({}) -- not sure how to use this yet 😅
+      lspconfig.eslint.setup({
+        on_attach = function(_, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end,
+      })
     end,
   },
 }
