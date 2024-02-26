@@ -48,6 +48,7 @@ return {
       lspconfig.tsserver.setup({})
       lspconfig.standardrb.setup({})
       lspconfig.ruby_ls.setup({})
+      lspconfig.stimulus_ls.setup({}) -- not sure how to use this yet 😅
     end,
   },
 }
