@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 
 local set = vim.keymap.set
+
+-- TODO: Research what noremap and silent do, and if I *really* need them
 local opts = { noremap = true, silent = true }
 
 -- Map JJ to escape
