@@ -2,7 +2,7 @@ require("watts.core")
 require("watts.git")
 require("watts.ruby")
 
--- Lazy.nvim setup, from docs
+-- lazy.nvim is a modern plugin manager for Neovim.
 -- https://github.com/folke/lazy.nvim?tab=readme-ov-file#-installation
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
