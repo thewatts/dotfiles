@@ -1,0 +1,4 @@
+keybinding:
+  universal:
+    quit: '<esc>'
+    return: 'q' # return to previous menu, will quit if there's nowhere to return
