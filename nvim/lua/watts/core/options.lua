@@ -100,3 +100,7 @@ opt.iskeyword:append("-")
 --
 -- This is set to false, re: Noice plugin
 opt.lazyredraw = false
+
+-- General defaults for color-column for all file types
+-- Note: This is overriden in `watts.git.lua` for git commit messages
+opt.colorcolumn = "80,100"
