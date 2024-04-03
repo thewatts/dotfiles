@@ -52,7 +52,7 @@ return {
             "%.csv",
             "public/assets",
             "public/downloads",
-            "log",
+            "%.log",
           },
         },
       })
