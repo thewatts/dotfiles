@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 local set = vim.keymap.set
+local api = vim.api
 
 -- TODO: Research what noremap and silent do, and if I *really* need them
 local opts = { noremap = true, silent = true }
@@ -48,3 +49,10 @@ set("v", "<S-k>", ":m '<-2<CR>gv=gv", opts) -- down
 -- what other options are there for this, other than ]q and [q
 set("n", "<C-[>", ":cprev<CR>", opts)
 set("n", "<C-]>", ":cnext<CR>", opts)
+
+api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    set("n", "<CR>", "<CR>", { buffer = true })
+  end,
+})
