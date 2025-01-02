@@ -2,10 +2,11 @@
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
-  opts = {
-    options = {
-      -- theme = 'catppuccin'
-      theme = 'rose-pine'
-    }
-  }
+  config = function() -- Switch to config function for dynamic loading
+    require('lualine').setup({
+      options = {
+        theme = require('nostromo').lualine
+      }
+    })
+  end
 }
