@@ -44,7 +44,6 @@ return {
           file_ignore_patterns = {
             "node_modules",
             "%.git",
-            "vendor",
             "import_data_samples",
             "tmp",
             "legacy_invoices",
@@ -52,6 +51,7 @@ return {
             "%.csv",
             "public/assets",
             "public/downloads",
+            "vendor/javascript",
             "%.log",
           },
         },

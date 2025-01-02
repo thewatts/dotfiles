@@ -1,6 +1,4 @@
 -- for conciseness
-local api = vim.api
-local cmd = vim.cmd
 local opt = vim.opt
 
 -- Disable swap file
