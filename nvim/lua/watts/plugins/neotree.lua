@@ -21,6 +21,19 @@ return {
     },
   },
   config = function()
+    vim.g.neotree_close_on_file_open = true
+
+    -- Command to toggle auto-close behavior
+    vim.api.nvim_create_user_command("ToggleNeoTreeAutoClose", function()
+      vim.g.neotree_close_on_file_open = not vim.g.neotree_close_on_file_open
+
+      if vim.g.neotree_close_on_file_open then
+        print("NeoTree Auto-Close: ON")
+      else
+        print("NeoTree Auto-Close: OFF")
+      end
+    end, { desc = "Toggle NeoTree auto-close on file open" })
+
     require("neo-tree").setup({
       filesystem = {
         window = {
@@ -36,7 +49,9 @@ return {
           -- Auto close NeoTree when selecting (opening) a file
           event = "file_opened",
           handler = function() -- file_path is the argument
-            require("neo-tree").close_all()
+            if vim.g.neotree_close_on_file_open then
+              require("neo-tree").close_all()
+            end
           end,
         },
       },
