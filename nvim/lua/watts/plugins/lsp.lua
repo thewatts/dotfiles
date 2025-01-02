@@ -44,7 +44,15 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
 
-      lspconfig.lua_ls.setup({})
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
+      })
       lspconfig.tsserver.setup({})
       -- lspconfig.standardrb.setup({})
       lspconfig.ruby_ls.setup({}) -- see above
