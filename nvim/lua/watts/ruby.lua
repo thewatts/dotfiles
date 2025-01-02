@@ -26,8 +26,8 @@ cmd({ "BufRead", "BufNewFile" }, {
 keymap("i", "<C-l>", " => ")
 
 -- Insert a binding.pry under cursor
-keymap("n", "<Leader>p", 'orequire "pry"; ::Kernel.binding.pry<esc>:w<cr>', { silent = true })
-keymap("n", "<Leader>d", "o::Kernel.binding.irb<esc>:w<cr>", { silent = true })
+keymap("n", "<Leader>d", 'orequire "pry"; ::Kernel.binding.pry<esc>:w<cr>', { silent = true })
+keymap("n", "<Leader>i", "o::Kernel.binding.irb<esc>:w<cr>", { silent = true })
 
 -- ERB
 keymap("i", "<C-e>", "<Esc>i<%  %><Left><Left><Left>", { noremap = true, silent = true })
