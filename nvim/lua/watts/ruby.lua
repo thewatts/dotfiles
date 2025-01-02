@@ -35,3 +35,37 @@ keymap("i", "<C-r>", "<Esc>i<%=  %><Left><Left><Left>", { noremap = true, silent
 
 -- Bundle
 keymap("n", "<Leader>bb", ":term bundle install<cr>", { silent = true })
+
+------------------------------------------------------------------
+---- Inject a frozen_string_literal comment at the top of the file
+local function inject_frozen_string_literal()
+  -- Get the filetype of the current buffer
+  local filetype = vim.bo.filetype
+
+  -- Check if the filetype is Ruby
+  if filetype == "ruby" then
+    -- Save the current cursor position
+    local current_pos = vim.api.nvim_win_get_cursor(0)
+
+    -- Go to the top of the file
+    vim.api.nvim_win_set_cursor(0, { 1, 0 })
+
+    -- Insert the frozen_string_literal comment with a newline
+    vim.api.nvim_buf_set_lines(0, 0, 0, false, { "# frozen_string_literal: true" })
+
+    -- Insert an empty line after the comment
+    vim.api.nvim_buf_set_lines(0, 1, 1, false, { "" })
+
+    -- Restore the cursor position
+    vim.api.nvim_win_set_cursor(0, { current_pos[1] + 2, current_pos[2] })
+  else
+    -- Output a message that we're not in a Ruby file
+    vim.api.nvim_out_write("Not a Ruby file, cannot inject frozen_string_literal\n")
+  end
+end
+
+keymap('n', '<leader>rfs', '', {
+  noremap = true,
+  silent = true,
+  callback = inject_frozen_string_literal
+})
