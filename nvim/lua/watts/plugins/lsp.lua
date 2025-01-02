@@ -16,10 +16,10 @@ return {
       ensure_installed = {
         "lua_ls",
         "tsserver",
-        "ruby_ls",
-        "standardrb"
-      },
-    }
+        -- "ruby_ls", -- removing for now, as it requires some setup to work with standardrb
+        -- "standardrb"
+      }
+    },
   },
   -- Quickstart configs for Nvim LSP
   {
@@ -46,9 +46,9 @@ return {
 
       lspconfig.lua_ls.setup({})
       lspconfig.tsserver.setup({})
-      lspconfig.standardrb.setup({})
-      lspconfig.ruby_ls.setup({})
-      lspconfig.stimulus_ls.setup({}) -- not sure how to use this yet 😅
+      -- lspconfig.standardrb.setup({})
+      lspconfig.ruby_ls.setup({}) -- see above
+      -- lspconfig.stimulus_ls.setup({}) -- not sure how to use this yet 😅
       lspconfig.eslint.setup({
         on_attach = function(_, bufnr)
           vim.api.nvim_create_autocmd("BufWritePre", {
