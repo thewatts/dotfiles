@@ -9,7 +9,7 @@ return {
         "<C-p>",
         function()
           local builtin = require("telescope.builtin")
-          builtin.find_files()
+          builtin.find_files({ debounce = 200 })
         end,
         desc = "Fuzzy find files by name in the current directory"
       },
@@ -18,7 +18,7 @@ return {
         "<Leader>F",
         function()
           local builtin = require("telescope.builtin")
-          builtin.live_grep()
+          builtin.live_grep({ debounce = 200 })
         end,
         desc = "Find search-term within files in the current directory"
       },
@@ -53,6 +53,11 @@ return {
             "public/downloads",
             "vendor/javascript",
             "%.log",
+          },
+          layout_config = {
+            width = 0.97,         -- 95% of screen width
+            height = 0.97,        -- 95% of screen height
+            preview_width = 0.55, -- width of preview window (right side)
           },
         },
       })
