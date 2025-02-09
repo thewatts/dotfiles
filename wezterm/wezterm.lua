@@ -7,10 +7,15 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'AdventureTime'
-
+config.audible_bell = 'Disabled'
 config.font = wezterm.font "TX-02"
 config.font_size = 15.0
+
+-- max fps
+config.max_fps = 240
+
+-- full screen
+config.native_macos_fullscreen_mode = false
 
 config.hide_tab_bar_if_only_one_tab = true
 
