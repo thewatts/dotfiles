@@ -116,5 +116,27 @@ return {
         vim.cmd("TmuxNavigateRight")
       end
     end, { noremap = true, silent = true })
+
+    vim.g.floaterm_is_full = false
+
+    -- Create the toggle function
+    local function toggle_floaterm_width()
+      -- Toggle the state first
+      vim.g.floaterm_is_full = not vim.g.floaterm_is_full
+
+      if not vim.g.floaterm_is_full then
+        -- Reset to original width
+        vim.g.floaterm_width = 0.5
+        vim.cmd('FloatermUpdate --width=0.5')
+      else
+        -- Set to full width
+        vim.g.floaterm_width = 0.99
+        vim.cmd('FloatermUpdate --width=0.99')
+      end
+    end
+
+    vim.keymap.set("t", "<C-f>", function()
+      toggle_floaterm_width()
+    end, { noremap = true, silent = true })
   end,
 }
