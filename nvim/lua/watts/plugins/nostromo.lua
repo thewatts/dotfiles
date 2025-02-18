@@ -8,5 +8,7 @@ return {
     require("nostromo").setup({
       visible_borders = false,
     })
+
+    vim.api.nvim_set_hl(0, "ThemeColumn", { fg = "#1e2628", nocombine = true })
   end,
 }

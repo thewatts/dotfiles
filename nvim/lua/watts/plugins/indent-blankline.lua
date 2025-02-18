@@ -6,6 +6,7 @@ return {
     indent = {
       char = "│",
       tab_char = "│",
+      highlight = "ThemeColumn",
     },
     scope = {
       -- scope keeps one of the lines highlighted, depending on the cursor position
