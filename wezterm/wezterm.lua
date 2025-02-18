@@ -9,7 +9,7 @@ local config = wezterm.config_builder()
 -- For example, changing the color scheme:
 config.audible_bell = 'Disabled'
 config.font = wezterm.font "TX-02"
-config.font_size = 15.0
+config.font_size = 14.0
 
 -- max fps
 config.max_fps = 240
