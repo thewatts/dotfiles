@@ -9,7 +9,7 @@ return {
         "<C-p>",
         function()
           local builtin = require("telescope.builtin")
-          builtin.find_files({ debounce = 200 })
+          builtin.find_files({ debounce = 200, hidden = true })
         end,
         desc = "Fuzzy find files by name in the current directory"
       },
@@ -18,7 +18,7 @@ return {
         "<Leader>F",
         function()
           local builtin = require("telescope.builtin")
-          builtin.live_grep({ debounce = 200 })
+          builtin.live_grep({ debounce = 200, hidden = true })
         end,
         desc = "Find search-term within files in the current directory"
       },
