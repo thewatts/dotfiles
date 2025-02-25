@@ -22,6 +22,23 @@ return {
         end,
         desc = "Find search-term within files in the current directory"
       },
+      {
+        -- Make sure to brew install ripgrep for this!
+        "<Leader>gb",
+        function()
+          local builtin = require("telescope.builtin")
+          builtin.git_branches({
+            debounce = 200,
+            show_remote_tracking_branches = true,
+            layout_config = {
+              width = 0.97,      -- Keep full width
+              height = 0.97,     -- Keep full height
+              preview_width = 0, -- Make preview smaller for branch names
+            }
+          })
+        end,
+        desc = "Switch Git branches (including remote) using Telescope"
+      },
     }
   },
   -- It sets vim.ui.select to telescope. That means for example that neovim core stuff can fill the telescope picker. Example would be lua vim.lsp.buf.code_action().
