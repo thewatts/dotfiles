@@ -65,7 +65,7 @@ return {
             "tmp",
             "legacy_invoices",
             "tasting_notes",
-            "%.csv",
+            -- "%.csv",
             "public/assets",
             "public/downloads",
             "vendor/javascript",
