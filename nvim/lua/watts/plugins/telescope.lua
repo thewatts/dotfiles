@@ -3,13 +3,16 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-live-grep-args.nvim"
+    },
     keys = {
       {
         "<C-p>",
         function()
           local builtin = require("telescope.builtin")
-          builtin.find_files({ debounce = 200, hidden = true })
+          builtin.find_files({ debounce = 100, hidden = true })
         end,
         desc = "Fuzzy find files by name in the current directory"
       },
@@ -17,8 +20,8 @@ return {
         -- Make sure to brew install ripgrep for this!
         "<Leader>F",
         function()
-          local builtin = require("telescope.builtin")
-          builtin.live_grep({ debounce = 200, hidden = true })
+          local extension = require("telescope").extensions.live_grep_args
+          extension.live_grep_args({ debounce = 200, hidden = true })
         end,
         desc = "Find search-term within files in the current directory"
       },
@@ -38,6 +41,27 @@ return {
           })
         end,
         desc = "Switch Git branches (including remote) using Telescope"
+      },
+      {
+        -- Make sure to brew install ripgrep for this!
+        "<Leader>gr",
+        function()
+          local builtin = require("telescope.builtin")
+          builtin.lsp_references()
+        end,
+        desc = "Find references to LSP symbol using Telescope"
+      },
+      {
+        -- Make sure to brew install ripgrep for this!
+        "<Leader>sw",
+        function()
+          local builtin = require("telescope.builtin")
+          builtin.grep_string({
+            search = vim.fn.expand("<cword>"), -- search for exact word under cursor
+            prompt_title = "Search Word",
+          })
+        end,
+        desc = "Find references to LSP symbol using Telescope"
       },
     }
   },
@@ -68,7 +92,13 @@ return {
             -- "%.csv",
             "public/assets",
             "public/downloads",
+            "public/maintenance_files",
             "vendor/javascript",
+            "vendor/assets",
+            "test_results",
+            "rdpscan",
+            "coverage",
+            "vendor/mitre",
             "%.log",
           },
           layout_config = {
@@ -83,6 +113,7 @@ return {
       -- load_extension, somewhere after setup function:
       telescope.load_extension("ui-select")
       telescope.load_extension("fzf")
+      telescope.load_extension("live_grep_args")
     end,
   },
   {

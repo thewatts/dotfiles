@@ -22,6 +22,36 @@ return {
         },
         view = "mini",
       },
+      {
+        filter = {
+          event = "msg_show",
+          kind = "",
+          find = "hamllint",
+        },
+        opts = { skip = true },
+      },
+      {
+        filter = {
+          event = "notify",
+          find = "hamllint",
+        },
+        opts = { skip = true },
+      },
+      {
+        filter = {
+          event = "msg_show",
+          kind = "echomsg",
+          find = "hamllint",
+        },
+        opts = { skip = true },
+      },
+      {
+        filter = {
+          event = "cmdline",
+          find = "a:message",
+        },
+        opts = { skip = true },
+      }
     },
     presets = {
       bottom_search = true,
