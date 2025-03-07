@@ -36,6 +36,9 @@ keymap("i", "<C-r>", "<Esc>i<%=  %><Left><Left><Left>", { noremap = true, silent
 -- Bundle
 keymap("n", "<Leader>bb", ":term bundle install<cr>", { silent = true })
 
+-- Run the current Ruby file in a Floaterm window
+keymap("n", "<leader>rr", ':FloatermNew zsh -i -c "ruby %; read"<CR>', { noremap = true, silent = true })
+
 ------------------------------------------------------------------
 ---- Inject a frozen_string_literal comment at the top of the file
 local function inject_frozen_string_literal()
