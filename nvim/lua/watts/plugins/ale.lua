@@ -20,7 +20,7 @@ return {
     -- Only run linters named in ale_linters settings.
     g.ale_linters_explicit = 1
 
-    g.ale_cursor_detail = 1
+    -- g.ale_cursor_detail = 1
 
     g.ale_echo_msg_error_str = 'E'
     g.ale_echo_msg_warning_str = 'W'
