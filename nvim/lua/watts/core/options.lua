@@ -15,8 +15,8 @@ opt.swapfile = false
 opt.autowrite = true
 
 -- line numbers
-opt.number = true         -- turn on line numbers
-opt.relativenumber = true -- make line numbers releative to the cursor
+opt.number = true          -- turn on line numbers
+opt.relativenumber = false -- make line numbers releative to the cursor
 
 -- tabs & indentation
 -- https://neovim.io/doc/user/usr_25.html#25.3
