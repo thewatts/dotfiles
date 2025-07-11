@@ -54,7 +54,9 @@ return {
       formatters_by_ft = {
         eruby = { "htmlbeautifier", "erb_lint" },
         html = { "prettier" },
+        css = { "prettier" },
         json = { "prettier" },
+        haml = {},
         eruby_yaml = {}
       },
       formatters = {

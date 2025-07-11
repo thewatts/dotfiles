@@ -15,7 +15,7 @@ return {
     opts = {
       ensure_installed = {
         "lua_ls",
-        "tsserver",
+        -- "tsserver",
         -- "ruby_ls", -- removing for now, as it requires some setup to work with standardrb
         -- "standardrb"
       }

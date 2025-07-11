@@ -118,7 +118,7 @@ keybinding:
 #update:
 #  method: prompt # can be: prompt | background | never
 #  days: 14 # how often an update is checked for
-#confirmOnQuit: false
+confirmOnQuit: true
 ## determines whether hitting 'esc' will quit the application when there is nothing to cancel/close
 #quitOnTopLevelReturn: false
 #disableStartupPopups: false

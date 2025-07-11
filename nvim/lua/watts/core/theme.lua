@@ -37,7 +37,7 @@ local function toggle_theme()
     vim.g.current_theme_mode = "light"
   else
     -- Switch to dark theme
-    vim.cmd("colorscheme catppuccin-mocha")
+    vim.cmd("colorscheme nostromo")
     vim.g.current_theme_mode = "dark"
   end
 end
