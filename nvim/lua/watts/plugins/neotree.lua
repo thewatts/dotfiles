@@ -1,7 +1,6 @@
 -- Neovim plugin to manage the file system and other tree like structures.
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",       -- 3rd party "standard library" functions
     "nvim-tree/nvim-web-devicons", -- for fancy icons :)
@@ -40,7 +39,10 @@ return {
           mappings = {
             -- disable fuzzy finder
             -- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/791
-            ["/"] = "noop"
+            ["/"] = "noop",
+            ["<C-b>"] = { "filesystem toggle left" },
+            ["<C-n>"] = { "scroll_preview", config = { direction = -10 } },
+            ["<C-p>"] = { "scroll_preview", config = { direction = 10 } },
           },
         },
       },
