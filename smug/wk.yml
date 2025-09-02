@@ -1,0 +1,14 @@
+session: ${SESSION}
+root: ${ROOT}
+
+windows:
+  - name: Code
+    selected: true
+    commands:
+      - bundle
+      - yarn
+  - name: Server
+    panes:
+      - type: horizontal
+  - name: Routes
+  - name: Production
