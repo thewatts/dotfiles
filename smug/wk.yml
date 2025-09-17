@@ -10,5 +10,6 @@ windows:
   - name: Server
     panes:
       - type: horizontal
+  - name: Spring
   - name: Routes
   - name: Production
