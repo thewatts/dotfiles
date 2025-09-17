@@ -1,0 +1,53 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "inline_completions": {
+    "disabled_globs": [
+      ".env",
+      ".md"
+    ]
+  },
+  "theme": "Nostromo",
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 14,
+  "formatter": "language_server",
+  "format_on_save": "on",
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": true,
+    "tabs": false
+  },
+  "languages": {
+    "Markdown": {
+      "show_inline_completions": false
+    },
+    "Ruby": {
+      "language_servers": [
+        "rubocop",
+        "ruby-lsp",
+        "!solargraph"
+      ]
+    }
+  }
+  // "lsp": {
+  //   "ruby-lsp": {
+  //     "initialization_options": {
+  //       "enabledFeatures": {
+  //         "diagnostics": false
+  //       }
+  //     }
+  //   },
+  //   "rubocop": {
+  //     "initialization_options": {
+  //       "safeAutocorrect": false
+  //     }
+  //   }
+  // }
+}

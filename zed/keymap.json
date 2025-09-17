@@ -1,0 +1,189 @@
+[
+  // Global Bindings (equivalent to your leader key mappings)
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      // File Navigation (replacing your telescope bindings)
+      "ctrl-p": "file_finder::Toggle", // Your <C-p> for file finding
+      "space f": "project_panel::ToggleFocus", // Your <Leader>f for file reveal
+      "space shift-f": "pane::DeploySearch", // Your <Leader>F for project search
+
+      // Spatial Pane Navigation (like tmux-vim-navigator)
+      "ctrl-h": "workspace::ActivatePaneLeft", // Move to pane on the LEFT
+      "ctrl-l": "workspace::ActivatePaneRight", // Move to pane on the RIGHT
+      "ctrl-j": "workspace::ActivatePaneDown", // Move to pane BELOW
+      "ctrl-k": "workspace::ActivatePaneUp", // Move to pane ABOVE
+
+      // Split Management (matching your nvim window commands)
+      "space v": "pane::SplitRight", // Your <leader>v
+      "space h": "pane::SplitDown", // Your <leader>h
+
+      // Toggle back to previous file (your <leader><leader>)
+      "space space": "tab_switcher::Toggle",
+
+      // LSP
+      "space r n": "editor::Rename", // LSP rename
+      "space c a": "editor::ToggleCodeActions", // LSP code actions
+      "space k": "editor::Hover", // LSP hover info
+
+      // Search
+      "space s w": "pane::DeploySearch", // Search word under cursor
+
+      // terminal
+      "ctrl-a z": "workspace::ToggleRightDock" // Show/hide terminal panel
+    }
+  },
+
+  // Vim Mode Specific Bindings
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // Line Movement (matching your shift-j/shift-k mappings)
+      "shift-j": ["workspace::SendKeystrokes", "v j :m '>+1 enter gv = gv"],
+      "shift-k": ["workspace::SendKeystrokes", "v k :m '<-2 enter gv = gv"],
+
+      // Go to definition
+      "g d": "editor::GoToDefinition",
+      "g r": "editor::FindAllReferences"
+    }
+  },
+
+  // Insert Mode Vim Bindings
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      // jj to escape (matching your nvim config)
+      "j j": "vim::NormalBefore",
+
+      // Ruby-specific bindings (from your ruby.lua)
+      "ctrl-l": ["workspace::SendKeystrokes", " => "], // Hash rocket
+      "ctrl-e": ["workspace::SendKeystrokes", "<%  %>"], // ERB tags
+      "ctrl-r": ["workspace::SendKeystrokes", "<%=  %>"] // ERB output tags
+    }
+  },
+
+  // Terminal Bindings
+  {
+    "context": "Terminal",
+    "bindings": {
+      // Navigate out of terminal (matching your floaterm setup)
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-a l": "terminal::Clear",
+      // Tmux-style terminal splitting
+      "ctrl-a -": "pane::SplitDown", // Vertical split (new terminal below)
+      "ctrl-a |": "pane::SplitRight", // Horizontal split (new terminal to right)
+
+      // Terminal tab navigation by number (like tmux - 0-indexed)
+      "ctrl-a 0": ["pane::ActivateItem", 0], // Go to terminal tab 0 (first)
+      "ctrl-a 1": ["pane::ActivateItem", 1], // Go to terminal tab 1 (second)
+      "ctrl-a 2": ["pane::ActivateItem", 2], // Go to terminal tab 2 (third)
+      "ctrl-a 3": ["pane::ActivateItem", 3], // Go to terminal tab 3
+      "ctrl-a 4": ["pane::ActivateItem", 4], // Go to terminal tab 4
+      "ctrl-a 5": ["pane::ActivateItem", 5], // Go to terminal tab 5
+      "ctrl-a 6": ["pane::ActivateItem", 6], // Go to terminal tab 6
+      "ctrl-a 7": ["pane::ActivateItem", 7], // Go to terminal tab 7
+      "ctrl-a 8": ["pane::ActivateItem", 8], // Go to terminal tab 8
+      "ctrl-a 9": ["pane::ActivateItem", 9], // Go to terminal tab 9
+      // Terminal zoom toggle (when IN terminal)
+      "ctrl-a z": "workspace::ToggleZoom" // Zoom current terminal pane
+    }
+  },
+
+  // Quick Function Keys (matching your nvim setup)
+  {
+    "context": "Workspace",
+    "bindings": {
+      "f7": "buffer_search::Dismiss" // Clear search highlights
+    }
+  },
+  {
+    "context": "TabSwitcher",
+    "bindings": {
+      // Vim-style navigation in tab switcher only
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrevious",
+
+      // Keep Enter to select
+      "enter": "menu::Confirm",
+
+      // Escape to close
+      "escape": "menu::Cancel"
+    }
+  },
+  // When file finder IS OPEN, ctrl-p/ctrl-n should navigate
+  {
+    "context": "FileFinder || (FileFinder > Picker > Editor) || (FileFinder > Picker > menu)",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-p": "menu::SelectPrevious", // Navigate UP when finder is open
+      "ctrl-n": "menu::SelectNext", // Navigate DOWN when finder is open
+      "ctrl-j": "menu::SelectNext", // Alternative navigation
+      "ctrl-k": "menu::SelectPrevious", // Alternative navigation
+      "enter": "menu::Confirm",
+      "escape": "menu::Cancel"
+    }
+  }
+]
+// [
+//   {
+//     "context": "VimControl && !menu",
+//     "bindings": {
+//       // put key-bindings here if you want them to work in normal & visual mode
+//       "ctrl-b": "workspace::ToggleLeftDock",
+//       "ctrl-a z": "workspace::ToggleZoom",
+//       "ctrl-a -": [
+//         "pane::SplitDown",
+//         "workspace::NewTerminal"
+//       ]
+//     }
+//   },
+//   {
+//     "context": "ProjectPanel",
+//     "bindings": {
+//       "ctrl-b": "workspace::ToggleLeftDock",
+//       "ctrl-l": "workspace::ActivatePaneRight"
+//     }
+//   },
+//   {
+//     "context": "Terminal",
+//     "bindings": {
+//       "ctrl-b": "workspace::ToggleLeftDock",
+//       "ctrl-a z": "workspace::ToggleZoom",
+//       "ctrl-k": "workspace::ActivatePaneUp"
+//     }
+//   },
+//   {
+//     "context": "vim_mode == normal",
+//     "bindings": {
+//       // "ctrl-a -": [
+//       //   "pane::SplitDown",
+//       //   "workspace::NewTerminal"
+//       // ],
+//       "space v": "pane::SplitRight",
+//       "space h": "pane::SplitDown",
+//       "ctrl-b": "workspace::ToggleLeftDock",
+//       "ctrl-p": "file_finder::Toggle",
+//       "ctrl-l": "workspace::ActivatePaneRight",
+//       "ctrl-h": "workspace::ActivatePaneLeft",
+//       "ctrl-j": "workspace::ActivatePaneDown",
+//       "ctrl-k": "workspace::ActivatePaneUp"
+//     }
+//   },
+//   {
+//     "context": "vim_mode == insert",
+//     "bindings": {
+//       "j j": "vim::NormalBefore" // remap jk in insert mode to escape.
+//     }
+//   },
+//   {
+//     "context": "EmptyPane || SharedScreen",
+//     "bindings": {
+//       // put key-bindings here (in addition to above) if you want them to
+//       // work when no editor exists
+//       // "space f": "file_finder::Toggle"
+//     }
+//   }
+// ]
