@@ -7,6 +7,17 @@ return {
     config = function()
       local config = require("nvim-treesitter.configs")
 
+      -- Register custom parsers
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+      parser_config.haml = {
+        install_info = {
+          url = "https://github.com/vitallium/tree-sitter-haml",
+          files = {"src/parser.c", "src/scanner.c"},
+          branch = "main",
+        },
+        filetype = "haml",
+      }
+
       config.setup({
         auto_install = true,
         sync_install = false,
