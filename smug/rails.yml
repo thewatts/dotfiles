@@ -1,0 +1,15 @@
+session: ${SESSION}
+root: .
+
+windows:
+  - name: Code
+    selected: true
+    commands:
+      - bundle
+      - yarn
+  - name: Server
+    panes:
+      - type: horizontal
+  - name: Spring
+  - name: Routes
+  - name: Production

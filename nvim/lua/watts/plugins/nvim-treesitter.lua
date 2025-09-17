@@ -10,11 +10,13 @@ return {
       config.setup({
         auto_install = true,
         sync_install = false,
+
         highlight = {
           enable = true,
           -- https://github.com/nvim-treesitter/nvim-treesitter/issues/6187
-          additional_vim_regex_highlighting = true,
+          additional_vim_regex_highlighting = false, -- <<<- causes perf issues
         },
+
         indent = { enable = true },
       })
     end,

@@ -12,7 +12,7 @@ return {
         "<C-p>",
         function()
           local builtin = require("telescope.builtin")
-          builtin.find_files({ debounce = 100, hidden = true })
+          builtin.find_files({ debounce = 200, hidden = true })
         end,
         desc = "Fuzzy find files by name in the current directory"
       },
@@ -119,7 +119,6 @@ return {
   {
     -- a faster, native, implementation of FZF
     "nvim-telescope/telescope-fzf-native.nvim",
-    build =
-    "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    build = 'make'
   },
 }
