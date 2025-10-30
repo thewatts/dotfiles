@@ -45,11 +45,6 @@ set("n", "<S-j>", ":m+<CR>", opts)          -- down
 set("v", "<S-j>", ":m '>+1<CR>gv=gv", opts) -- up
 set("v", "<S-k>", ":m '<-2<CR>gv=gv", opts) -- down
 
--- Quickfix List Navigation
--- what other options are there for this, other than ]q and [q
-set("n", "<C-[>", ":cprev<CR>", opts)
-set("n", "<C-]>", ":cnext<CR>", opts)
-
 api.nvim_create_autocmd("FileType", {
   pattern = "qf",
   callback = function()
