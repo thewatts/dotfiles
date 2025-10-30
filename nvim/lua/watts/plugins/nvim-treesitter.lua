@@ -12,7 +12,7 @@ return {
       parser_config.haml = {
         install_info = {
           url = "https://github.com/vitallium/tree-sitter-haml",
-          files = {"src/parser.c", "src/scanner.c"},
+          files = { "src/parser.c", "src/scanner.c" },
           branch = "main",
         },
         filetype = "haml",
@@ -36,4 +36,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
   },
+  {
+    "tree-sitter/tree-sitter-embedded-template"
+  }
 }
