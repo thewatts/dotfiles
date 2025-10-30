@@ -40,7 +40,7 @@ return {
             -- disable fuzzy finder
             -- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/791
             ["/"] = "noop",
-            ["<C-b>"] = { "filesystem toggle left" },
+            ["<C-b>"] = "noop",
             ["<C-n>"] = { "scroll_preview", config = { direction = -10 } },
             ["<C-p>"] = { "scroll_preview", config = { direction = 10 } },
           },
