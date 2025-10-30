@@ -52,26 +52,12 @@ return {
         }
       end,
       formatters_by_ft = {
-        eruby = { "htmlbeautifier", "erb_lint" },
         html = { "prettier" },
         css = { "prettier" },
         json = { "prettier" },
         haml = {},
         eruby_yaml = {}
       },
-      formatters = {
-        erb_lint = {        -- https://github.com/Shopify/erb_lint/pull/357
-          env = {
-            RUBYOPT = "-W0" -- suppress reporting output
-          },
-          command = "bundle",
-          args = { "exec", "erblint", "--format", "quiet", "--autocorrect", "--stdin", "$FILENAME" },
-        },
-        htmlbeautifier = {
-          command = "htmlbeautifier",
-          args = { "-b", "1" },
-        },
-      }
     })
   end,
 }
