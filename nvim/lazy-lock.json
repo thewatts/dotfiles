@@ -42,6 +42,7 @@
   "vim-floaterm": { "branch": "master", "commit": "fd4bdd66eca56c6cc59f2119e4447496d8cde2ea" },
   "vim-gitgutter": { "branch": "main", "commit": "6620e5fbbe6a28de0bfed081f5bd2767023b7eea" },
   "vim-highlightedyank": { "branch": "master", "commit": "285a61425e79742997bbde76a91be6189bc988fb" },
+  "vim-projectionist": { "branch": "master", "commit": "5ff7bf79a6ef741036d2038a226bcb5f8b1cd296" },
   "vim-rails": { "branch": "master", "commit": "b0a5c76f86ea214ade36ab0b811e730c3f0add67" },
   "vim-rest-console": { "branch": "master", "commit": "7b407f47185468d1b57a8bd71cdd66c9a99359b2" },
   "vim-ruby-heredoc-syntax": { "branch": "master", "commit": "f1fcb71d8ddba3a22e4c0fe25bfef585ed3834c0" },
