@@ -72,3 +72,7 @@ keymap('n', '<leader>rfs', '', {
   silent = true,
   callback = inject_frozen_string_literal
 })
+
+keymap('n', '<leader>cla', function()
+  vim.fn.system('zsh -i -c "lastimg"')
+end, { noremap = true, silent = true })
