@@ -8,8 +8,13 @@ windows:
       - bundle
       - yarn
   - name: Server
-    panes:
-      - type: horizontal
+    commands:
+      - rails s
+  - name: Assets
+    commands:
+      - a
   - name: Spring
   - name: Routes
+    commands:
+      - routes
   - name: Production

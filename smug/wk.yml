@@ -7,9 +7,17 @@ windows:
     commands:
       - bundle
       - yarn
+      - reset
   - name: Server
-    panes:
-      - type: horizontal
+    commands:
+      - bin/rails s
+  - name: Assets
+    commands:
+      - a
   - name: Spring
+    commands:
+      - ss
   - name: Routes
+    commands:
+      - routes
   - name: Production
