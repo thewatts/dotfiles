@@ -17,7 +17,7 @@ cmd({ "BufRead", "BufNewFile" }, {
 })
 
 cmd({ "BufRead", "BufNewFile" }, {
-  pattern = { ".env.local", ".env.development", ".env.test", ".env.production" },
+  pattern = { ".env.local", ".env.development", ".env.development.local", ".env.test", ".env.production" },
   command = "setf sh",
 })
 
@@ -75,4 +75,8 @@ keymap('n', '<leader>rfs', '', {
 
 keymap('n', '<leader>cla', function()
   vim.fn.system('zsh -i -c "lastimg"')
+end, { noremap = true, silent = true })
+
+keymap('n', '<leader>or', function()
+  vim.fn.system('zsh -i -c "or"')
 end, { noremap = true, silent = true })
