@@ -1,0 +1,7 @@
+font-family="TX-02"
+font-size=16
+fullscreen=true
+macos-non-native-fullscreen=true
+window-padding-y = 14,0
+theme = light:rose-pine-dawn,dark:nostromo
+keybind = shift+enter=text:\x1b\r
