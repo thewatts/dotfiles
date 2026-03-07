@@ -122,5 +122,8 @@ return {
     vim.keymap.set("t", "<C-f>", function()
       toggle_floaterm_width()
     end, { noremap = true, silent = true })
+
+    -- Kill floaterm
+    vim.keymap.set("n", "<leader>ftk", ":FloatermKill<CR>", { noremap = true, silent = true, desc = "Kill floaterm" })
   end
 }
