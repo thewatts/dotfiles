@@ -52,6 +52,10 @@ return {
         }
       end,
       formatters_by_ft = {
+        javascript = { "eslint" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
         html = { "prettier" },
         css = { "prettier" },
         json = { "prettier" },

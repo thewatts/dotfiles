@@ -16,6 +16,7 @@ return {
       ensure_installed = {
         "lua_ls",
         "ts_ls",
+        "eslint",
         -- "ruby_ls", -- removing for now, as it requires some setup to work with standardrb
         -- "standardrb"
       }
@@ -53,7 +54,32 @@ return {
           },
         },
       })
-      lspconfig.tsserver.setup({})
+      lspconfig.ts_ls.setup({
+        settings = {
+          typescript = {
+            inlayHints = {
+              includeInlayParameterNameHints = "all",
+              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = true,
+            },
+          },
+          javascript = {
+            inlayHints = {
+              includeInlayParameterNameHints = "all",
+              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = true,
+            },
+          },
+        },
+      })
       -- lspconfig.standardrb.setup({})
       lspconfig.ruby_ls.setup({}) -- see above
       -- lspconfig.stimulus_ls.setup({}) -- not sure how to use this yet 😅
