@@ -100,6 +100,7 @@ return {
             "coverage",
             "vendor/mitre",
             "%.log",
+            "api_docs/api_reference.js"
           },
           layout_config = {
             width = 0.97,         -- 95% of screen width
