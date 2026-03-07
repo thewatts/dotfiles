@@ -7,9 +7,9 @@ windows:
     commands:
       - bundle
       - yarn
-      - reset
   - name: Server
     commands:
+      - bin/rails db:snapshot:restore
       - bin/rails s
   - name: Assets
     commands:
