@@ -15,8 +15,8 @@ opt.swapfile = false
 opt.autowrite = true
 
 -- line numbers
-opt.number = true          -- turn on line numbers
-opt.relativenumber = false -- make line numbers releative to the cursor
+opt.number = true         -- turn on line numbers
+opt.relativenumber = true -- make line numbers releative to the cursor
 
 -- tabs & indentation
 -- https://neovim.io/doc/user/usr_25.html#25.3
@@ -102,3 +102,8 @@ opt.lazyredraw = false
 -- General defaults for color-column for all file types
 -- Note: This is overriden in `watts.git.lua` for git commit messages
 opt.colorcolumn = "80,100"
+
+-- Keymap timeout
+-- Time in milliseconds to wait for a mapped sequence to complete
+-- Lower value = faster response for incomplete mappings like <leader>f
+opt.timeoutlen = 200
