@@ -54,8 +54,7 @@ opt.cursorline = true
 -- https://neovim.io/doc/user/options.html#'termguicolors'
 -- Enables 24-bit RGB color
 opt.termguicolors = true
--- Set background color as dark
-opt.background = "dark"
+-- Background is managed by theme.lua (auto-switches with macOS appearance)
 -- Always display the left sign-column, regardless of whether or not data is injected there.
 -- an example here is gitgutter. When using gitgutter, and there aren't any changes to the file,
 -- gitgutter doesn't add anything to the sign column. As soon as there is a change, values will be added, and

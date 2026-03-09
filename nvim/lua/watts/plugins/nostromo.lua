@@ -9,6 +9,8 @@ return {
       visible_borders = false,
     })
 
-    vim.api.nvim_set_hl(0, "ThemeColumn", { fg = "#1e2628", nocombine = true })
+    if vim.g.current_theme_mode == "dark" then
+      vim.cmd("colorscheme nostromo")
+    end
   end,
 }

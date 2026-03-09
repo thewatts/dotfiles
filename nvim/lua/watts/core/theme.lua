@@ -24,23 +24,81 @@ keymap.set("n", "<F3>", function()
   vim.api.nvim_echo({ { info } }, false, {})
 end)
 
--- Initialize the global variable for the theme mode if it's not set
-if vim.g.current_theme_mode == nil then
-  vim.g.current_theme_mode = "dark"
+-- Theme auto-switching based on macOS appearance
+-- Dark: nostromo | Light: rose-pine-dawn
+-- Matches ghostty config: theme = light:rose-pine-dawn,dark:nostromo
+
+local themes = {
+  dark = {
+    colorscheme = "nostromo",
+    cursor_color = "#ffb78a",
+    column_color = "#1e2628",
+  },
+  light = {
+    colorscheme = "rose-pine-dawn",
+    cursor_color = "#575279",
+    column_color = "#dfdad9",
+  },
+}
+
+local function detect_appearance()
+  local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
+  local result = handle:read("*a")
+  handle:close()
+  return result:match("Dark") and "dark" or "light"
 end
 
--- Function to toggle between light and dark themes
-local function toggle_theme()
-  if vim.g.current_theme_mode == "dark" then
-    -- Switch to light theme
-    vim.cmd("colorscheme catppuccin-latte")
-    vim.g.current_theme_mode = "light"
-  else
-    -- Switch to dark theme
-    vim.cmd("colorscheme nostromo")
-    vim.g.current_theme_mode = "dark"
+-- Detect appearance immediately (before lazy.nvim loads plugins) so
+-- colorscheme plugins can read vim.g.current_theme_mode and set the
+-- correct scheme on first load — no flash.
+vim.g.current_theme_mode = detect_appearance()
+vim.o.background = vim.g.current_theme_mode
+
+-- Set indent guide colors after each colorscheme change
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function(args)
+    for _, theme in pairs(themes) do
+      if args.match == theme.colorscheme then
+        vim.api.nvim_set_hl(0, "IblIndent", { fg = theme.column_color, nocombine = true })
+        return
+      end
+    end
+  end,
+})
+
+local function apply_theme(mode)
+  if vim.g.current_theme_mode == mode then
+    return
   end
+
+  vim.g.current_theme_mode = mode
+  local theme = themes[mode]
+
+  vim.o.background = mode
+  vim.cmd("colorscheme " .. theme.colorscheme)
+
+  local smear_ok, smear = pcall(require, "smear_cursor")
+  if smear_ok then smear.setup({ cursor_color = theme.cursor_color }) end
 end
 
--- Command to toggle the theme
-vim.api.nvim_create_user_command("ToggleTheme", toggle_theme, {})
+-- Poll for macOS appearance changes every second (async — never blocks the editor)
+vim.defer_fn(function()
+  local timer = vim.uv.new_timer()
+  timer:start(1000, 1000, vim.schedule_wrap(function()
+    vim.system(
+      { "defaults", "read", "-g", "AppleInterfaceStyle" },
+      { text = true },
+      vim.schedule_wrap(function(result)
+        local mode = (result.stdout or ""):match("Dark") and "dark" or "light"
+        apply_theme(mode)
+      end)
+    )
+  end))
+end, 0)
+
+-- Manual toggle command
+vim.api.nvim_create_user_command("ToggleTheme", function()
+  local new_mode = vim.g.current_theme_mode == "dark" and "light" or "dark"
+  vim.g.current_theme_mode = nil
+  apply_theme(new_mode)
+end, {})

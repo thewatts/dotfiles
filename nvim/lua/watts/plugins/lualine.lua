@@ -4,7 +4,7 @@ return {
   config = function()
     require('lualine').setup({
       options = {
-        theme = require('nostromo').lualine,
+        theme = 'auto',
       },
       sections = {
         lualine_a = { 'mode' },
