@@ -81,7 +81,7 @@ return {
         },
       })
       -- lspconfig.standardrb.setup({})
-      lspconfig.ruby_ls.setup({
+      lspconfig.ruby_lsp.setup({
         cmd = { "bundle", "exec", "ruby-lsp" },
       }) -- see above
       -- lspconfig.stimulus_ls.setup({}) -- not sure how to use this yet 😅
