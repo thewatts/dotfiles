@@ -81,7 +81,9 @@ return {
         },
       })
       -- lspconfig.standardrb.setup({})
-      lspconfig.ruby_ls.setup({}) -- see above
+      lspconfig.ruby_ls.setup({
+        cmd = { "bundle", "exec", "ruby-lsp" },
+      }) -- see above
       -- lspconfig.stimulus_ls.setup({}) -- not sure how to use this yet 😅
       lspconfig.eslint.setup({
         on_attach = function(_, bufnr)
