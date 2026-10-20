@@ -9,7 +9,7 @@ windows:
       - yarn
   - name: Server
     commands:
-      - bin/rails db:snapshot:restore
+      - bin/rails db:reset
       - bin/rails s
   - name: Assets
     commands:
