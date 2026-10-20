@@ -1,5 +1,12 @@
+-- We only enable smear-cursor when nvim runs directly in Ghostty.
+--
+-- The animation makes nvim send several times more screen updates on each
+-- scroll. Ghostty handles that fine on its own. Inside tmux, a single tmux
+-- thread has to process all of that output, which caused stutter and freezes.
+-- So the plugin is on outside tmux and off inside it.
 return {
   "sphamba/smear-cursor.nvim",
+  enabled = vim.env.TMUX == nil,
   -- opts = { -- Default  Range
   --   -- stiffness = 0.8,          -- 0.6      [0, 1]
   --   -- trailing_stiffness = 0.5, -- 0.4      [0, 1]

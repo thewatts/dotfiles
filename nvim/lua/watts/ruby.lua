@@ -1,8 +1,8 @@
 local keymap = vim.keymap.set
 local cmd = vim.api.nvim_create_autocmd
 
--- Setting Ruby Path
-vim.g.ruby_path = vim.fn.system("echo $HOME/.rbenv/shims")
+-- Ruby comes from mise, so let vim-ruby's ftplugin pick `ruby` up off $PATH
+-- (the old rbenv shims path no longer exists).
 
 -- Autocommands for File Type Settings
 cmd("FileType", {

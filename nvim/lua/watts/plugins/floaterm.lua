@@ -5,7 +5,7 @@ return {
     -- 🖥️ Floaterm Configuration
     vim.g["floaterm_position"] = "topright"
     vim.g["floaterm_height"] = 0.97
-    vim.g["floaterm_width"] = 0.5
+    vim.g["floaterm_width"] = 0.99
 
     -- 🎨 Theme Colors (from your custom theme)
     local colors = {
@@ -101,7 +101,7 @@ return {
       end
     end, { noremap = true, silent = true })
 
-    vim.g.floaterm_is_full = false
+    vim.g.floaterm_is_full = true
 
     -- Create the toggle function
     local function toggle_floaterm_width()

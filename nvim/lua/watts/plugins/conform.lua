@@ -45,7 +45,7 @@ return {
     conform.setup({
       format_on_save = function()
         return {
-          lsp_fallback = true,
+          lsp_format = "fallback",
           async = false,
           timeout_ms = 5000,
           dry_run = vim.g.format_on_save == 0,

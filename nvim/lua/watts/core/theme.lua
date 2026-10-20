@@ -54,12 +54,14 @@ end
 vim.g.current_theme_mode = detect_appearance()
 vim.o.background = vim.g.current_theme_mode
 
--- Set indent guide colors after each colorscheme change
+-- Set indent guide and virtual column colors after each colorscheme change
 vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function(args)
     for _, theme in pairs(themes) do
       if args.match == theme.colorscheme then
-        vim.api.nvim_set_hl(0, "IblIndent", { fg = theme.column_color, nocombine = true })
+        -- `Whitespace` colours the built-in indent guides (listchars).
+        vim.api.nvim_set_hl(0, "Whitespace", { fg = theme.column_color, nocombine = true })
+        vim.api.nvim_set_hl(0, "ThemeColumn", { fg = theme.column_color, nocombine = true })
         return
       end
     end

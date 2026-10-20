@@ -31,6 +31,13 @@ opt.shiftwidth = 2
 opt.softtabstop = 2
 -- Make <Tab> use 2 spaces worth of indent, regardless what the tabstop was for the file (AFAIK, converts it)
 opt.tabstop = 2
+-- Neovim's bundled ftplugin/markdown.vim forces a 4-space indent unless this is off,
+-- which made fenced ruby in .md files indent at 4 instead of the 2 set above.
+vim.g.markdown_recommended_style = 0
+-- Built-in indent guides: draw a "│" for every `shiftwidth` of leading
+-- whitespace (replaces indent-blankline; coloured via `Whitespace` in theme.lua).
+opt.list = true
+opt.listchars = { leadmultispace = "│ ", tab = "│ " }
 
 -- Disable line wrapping
 opt.wrap = false

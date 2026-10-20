@@ -8,7 +8,8 @@ return {
     -- 🛠️ Test Execution Keymaps
     { "<leader>s",  "<cmd>TestNearest<CR>",            desc = "Run the nearest test" },
     { "<leader>sc", "<cmd>TestFile SHOW_CHROME=1<CR>", desc = "Run the current test file, but forces CHROME usage" },
-    { "<leader>t",  "<cmd>TestFile COVERAGE=1<CR>",    desc = "Run the current test file" },
+    { "<leader>t",  "<cmd>TestFile<CR>",               desc = "Run the current test file" },
+    -- { "<leader>t",  "<cmd>TestFile COVERAGE=0<CR>",    desc = "Run the current test file" },
     { "<leader>a",  "<cmd>TestSuite<CR>",              desc = "Run all tests in the suite" },
     { "<leader>g",  "<cmd>TestVisit<CR>",              desc = "Go to the last test file" },
     { "<CR>",       "<cmd>TestLast<CR>",               desc = "Re-run the last test" },

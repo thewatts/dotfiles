@@ -4,6 +4,13 @@ return {
   event = "VeryLazy",
   opts = {
     lsp = {
+      -- ruby-lsp sends indexing progress for the first minute or two of a
+      -- session. Noice redraws its spinner for every update, and each redraw
+      -- repaints the whole screen. That made scrolling slow and kept Ghostty
+      -- at full CPU. We turn the progress indicator off to stop it.
+      progress = {
+        enabled = false,
+      },
       override = {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
         ["vim.lsp.util.stylize_markdown"] = true,

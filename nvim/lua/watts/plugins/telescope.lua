@@ -2,7 +2,10 @@ return {
   -- Find, Filter, Preview, Pick. All lua, all the time.
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.5",
+    -- v0.2.2 is the first stable release whose previewer highlights via
+    -- `vim.treesitter` directly instead of the classic nvim-treesitter API
+    -- (which was removed on the `main` branch); 0.1.5 crashed on `ft_to_lang`.
+    tag = "v0.2.2",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-live-grep-args.nvim"
